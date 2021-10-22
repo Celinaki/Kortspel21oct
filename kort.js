@@ -140,7 +140,7 @@ equalButton.addEventListener("click", function(){
 
 let show=document.querySelector(".hidden");
 let showP=document.createElement("p")
- let showBtn=document.createElement("button")   
+let showBtn=document.createElement("button")   
 
  const refreshPage = () => {
     location.reload();
