@@ -1,0 +1,54 @@
+body{
+    background-color: rgb(47, 255, 186);
+    display: flex;
+    justify-content: space-between;   
+    flex-direction: column;
+    font-size: 24px;
+    font-family:monospace ;
+}
+
+
+img{
+    width: 200px;
+    height: 325px;
+}
+header{
+    display: flex;
+    flex-direction:column;
+}
+
+
+nav{
+    align-content: flex-start;
+    text-align: center;
+    margin-top: 5rem;
+}
+
+footer{
+    margin-top: 3rem;
+}
+button{
+    font-size: 28px;
+}
+.row{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.row p , .roww p{
+    padding: 0;
+    margin: 0;
+}
+
+main{
+    align-self: center;
+    text-align: center;
+    margin-top: 5rem;
+}
+.roww{
+    display: flex;
+    padding-left: 15%;
+}
+.roww p{
+    padding-left: 0.5rem;
+}
