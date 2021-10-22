@@ -89,6 +89,9 @@ lowerButton.addEventListener("click", function(){               //Click event vi
     randomCard();                                               //Kalla på functionen över
     if(lastCard <= currentCard ){
         lives.innerText--;
+        if(lives.innerText==0){
+            lostGame()
+    }
     }
     if(lastCard > currentCard){
         score.innerText++;
@@ -109,6 +112,9 @@ higherButton.addEventListener("click", function(){
 
     if(lastCard >= currentCard ){
         lives.innerText--;
+        if(lives.innerText==0){
+            lostGame()
+    }
     }
     if(lastCard < currentCard){
         score.innerText++;
@@ -126,20 +132,33 @@ equalButton.addEventListener("click", function(){
     }
     if(lastCard < currentCard || lastCard>currentCard){
         lives.innerText--;
+        if(lives.innerText==0){
+                lostGame()
+        }
     }
 })
 
 let show=document.querySelector(".hidden");
 let showP=document.createElement("p")
+ let showBtn=document.createElement("button")   
 
-    
+ const refreshPage = () => {
+    location.reload();
+  }
+  
+  showBtn.addEventListener('click', refreshPage)
 
-addEventListener("click",function(){
-    if(lives.innerText===0){
-    show.append("Game over! Spela igen? Klicka på knappen!",showP)
+function lostGame(){
+    if(lives.innerText==0){
+        show.append("Game over! Spela igen? Klicka på knappen!",showP)
+        show.append(showBtn)    
         console.log(show.childNodes)
+        showBtn.innerText="Spela igen!"
+        equalButton.className="hide"
+        lowerButton.className="hide"
+        higherButton.className="hide"
     }
-})
+}
 
 
     randomCard();
