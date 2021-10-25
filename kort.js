@@ -63,11 +63,14 @@ const cardsArray = [
   let equalButton=document.querySelector(".equal")
   let score=document.querySelector(".score")
   let lives=document.querySelector(".lives")
+  let highScore=document.querySelector(".highscore")
   let shuffleDeck=[];
   let cardsLeft=document.querySelector(".cards_left")
   let currentCard;
 
-  
+  if(highScore.innerText !== 0){
+    highScore.innerText = localStorage.getItem("highscore");
+  }
 
 
 
@@ -114,6 +117,7 @@ higherButton.addEventListener("click", function(){
         lives.innerText--;
         if(lives.innerText==0){
             lostGame()
+          
     }
     }
     if(lastCard < currentCard){
@@ -149,7 +153,12 @@ let showBtn=document.createElement("button")
   showBtn.addEventListener('click', refreshPage)
 
 function lostGame(){
-    if(lives.innerText==0){
+    if(lives.innerText==0){  
+        if(score.innerText > highScore){
+            localStorage.removeItem("highscore");
+            localStorage.setItem("highscore", score.innerText);
+
+        }
         show.append("Game over! Spela igen? Klicka på knappen!",showP)
         show.append(showBtn)    
         console.log(show.childNodes)
@@ -157,13 +166,19 @@ function lostGame(){
         equalButton.className="hide"
         lowerButton.className="hide"
         higherButton.className="hide"
+
+      
+   
     }
 }
-
-
     randomCard();
     console.log(cardsArray)
 
 
 
+function main(){
+randomCard()
+initGame()
 
+}
+main()
